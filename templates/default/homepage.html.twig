@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'homepage' %}
+
+{#
+    the homepage is a special page which displays neither a header nor a footer.
+    this is done with the 'trick' of defining empty Twig blocks without any content
+#}
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block body %}
+    
+
+    <div class="row">
+        <div class="col-sm">
+            <div class="jumbotron">
+                <p>
+                    {{ 'Browse Application'|trans|raw }}
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{{ path('blog_index') }}">
+                        <twig:ux:icon name="tabler:users-group" font-size="21px" /> {{ 'Enter'|trans }}
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm">
+            <div class="jumbotron">
+                
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{{ path('admin_index') }}">
+                        <twig:ux:icon name="tabler:lock"/> {{ 'Login'|trans }}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
